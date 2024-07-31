@@ -1,0 +1,49 @@
+
+
+USER ACCOUNT PAGE
+--> member login
+--> if yes 
+	--> show account page
+--> else
+ 	--> show register page
+	--> email or username and password will be required for account registration(or username instead of email to keep it simple) 
+--> account page will use get method to display specific user's info stored from the db
+	--> info to be displayed on the user's account page are their: 
+		--> Name: (or just display their username they use to login)		
+		--> Item Name: (It will be empty for the first time they sign into their newly created account)
+		--> Value: (current value of their item)
+		--> message(or description about the their item, and any detail and info they want to add. It will be empty for the first time they sign in).
+		--> Textbox: (a form with three input textbox fields labeled as "Item Name", "Message or Description", and "Value. Data passed through here will 
+            then be displayed to user's account page. Either let users to enter new details on these input text boxes to edit/overwrite/replace their 
+            "item name", "value", "message" again, or include an edit button right beside the displayed fields)
+		--> search bar: (to search for a group they can join, using the provided group's password/code by the user who'd created the group.)
+		--> search result: (the search's result will also be displayed in the account page since there will only be one group with the password/groupCode used to 			
+            search the group.  Once the group is shown in the search result, there will be "view group" button-- to get taken to the group's page, and get more 
+            details about the group-- it's where they'll also find the "join group" button a the bottom after checking out all the details about the group.)
+		--> create group button: (to create a group)
+		--> shuffle button: (greyed out maybe until the total number of members joined is reached? Or have this hidden, and then unhidden once max total of 			
+            members allowed to join is reached?)
+	 
+CREATE GROUP PAGE
+--> at this point, there are accounts and users already existing in the db, and anyone of these users can create a group.  
+	--> Once a user have created a group, a code will be auto generated(some type of API 	can be used, or let the user create the group's password/code for 
+        simplicity).  
+	-->Info that will be required for the group's creation are: 
+			--> group's name
+			--> group's password/code(if another group already has the same password or code it will return error message to user to let them know it's already 
+                taken/in-use)
+			--> value(user will set the maximum item's value allowed, members who has equal or less then this value will be allowed to join. Otherwise, it will 
+                return a message asking the potential new member to change their item to an item that has a value allowed in the group)
+			--> total even numbers(only even numbers will be allowed) of participants allowed to join, so that each group members can be 				
+                assigned assigned to one another evenly(by twos/couples)
+
+GROUP PAGE
+--> this page will display the following:
+	--> a text display called "group created by": (displayed somewhere in this page will indicate who created the group(or leave this out 
+        to keep it simple for now) 
+	--> remaining number of slots available in the group: (lets users know how many more members are able to join the group)
+	--> item's max value that is allowed: (let's the user know that they can join if the value 	of the item they listed in their account 
+        is equal or less than the value of the max value 	of item allowed for the group) 
+	--> "join group" button: (once join button is clicked, it will redirect user back to their 	account page. I Probably should add a display 
+        text on the account page as well that 	indcates the group name the user had joined)
+
